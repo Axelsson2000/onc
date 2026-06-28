@@ -1,1 +1,4 @@
-resources: []
+resources:
+  - ../../platform/root
+  - ../infrastructure/root
+  - ../workloads/root

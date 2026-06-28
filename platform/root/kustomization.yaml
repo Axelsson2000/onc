@@ -1,0 +1,9 @@
+resources:
+  - ../networking/root
+  - ../storage/root
+  - ../security/root
+  - ../observability/root
+  - ../database/root
+  - ../cache/root
+  - ../notifications/root
+  - ../edge/root
