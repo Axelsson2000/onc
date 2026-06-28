@@ -7,13 +7,17 @@ metadata:
 spec:
   project: default
 
-  source:
-    repoURL: https://charts.jetstack.io
-    chart: cert-manager
-    targetRevision: v1.18.2
-    helm:
-      valueFiles:
-        - values.yaml
+  sources:
+    - repoURL: https://charts.jetstack.io
+      chart: cert-manager
+      targetRevision: v1.18.2
+      helm:
+        valueFiles:
+          - $values/platform/security/cert-manager/values.yaml
+
+    - repoURL: https://github.com/Axelsson2000/onc.git
+      targetRevision: main
+      ref: values
 
   destination:
     server: https://kubernetes.default.svc
@@ -23,7 +27,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
-
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
