@@ -7,13 +7,16 @@ metadata:
     argocd.argoproj.io/sync-wave: "20"
 spec:
   project: default
+
   source:
     repoURL: https://github.com/Axelsson2000/onc.git
     targetRevision: main
-    path: platform/networking/metallb-config
+    path: platform/networking/metallb-config/resources
+
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
+
   syncPolicy:
     automated:
       prune: true

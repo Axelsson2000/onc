@@ -1,3 +1,2 @@
 resources:
-  - ipaddresspool.yaml
-  - l2advertisement.yaml
+  - application.yaml
