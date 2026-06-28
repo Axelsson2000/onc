@@ -5,22 +5,26 @@ metadata:
   namespace: argocd
   annotations:
     argocd.argoproj.io/sync-wave: "10"
+
 spec:
   project: default
-  source:
-    repoURL: https://metallb.github.io/metallb
-    chart: metallb
-    targetRevision: 0.16.1
-    helm:
-      values: |
-        frrk8s:
-          enabled: false
-        speaker:
-          frr:
-            enabled: false
+
+  sources:
+    - repoURL: https://metallb.github.io/metallb
+      chart: metallb
+      targetRevision: 0.16.1
+      helm:
+        valueFiles:
+          - $values/platform/networking/metallb/values.yaml
+
+    - repoURL: https://github.com/Axelsson2000/onc.git
+      targetRevision: main
+      ref: values
+
   destination:
     server: https://kubernetes.default.svc
     namespace: metallb-system
+
   syncPolicy:
     automated:
       prune: true
