@@ -1,0 +1,3 @@
+# Cache
+
+Shared cache components.
