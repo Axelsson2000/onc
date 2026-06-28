@@ -1,2 +1,4 @@
 resources:
   - ../ingress-nginx
+  - ../metallb
+  - ../metallb-config
