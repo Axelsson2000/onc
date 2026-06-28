@@ -3,8 +3,6 @@ kind: Ingress
 metadata:
   name: argocd
   namespace: argocd
-  annotations:
-    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
 spec:
   ingressClassName: nginx
 
@@ -18,4 +16,4 @@ spec:
               service:
                 name: argocd-server
                 port:
-                  number: 443
+                  number: 80
