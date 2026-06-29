@@ -1,5 +1,6 @@
 defaultSettings:
   defaultReplicaCount: 1
+  deletingConfirmationFlag: true
 
 persistence:
   defaultClass: true
