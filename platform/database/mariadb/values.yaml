@@ -1,0 +1,13 @@
+auth:
+  rootPassword: rootpassword
+  database: nextcloud
+  username: nextcloud
+  password: nextcloudpassword
+
+primary:
+  persistence:
+    enabled: true
+    storageClass: longhorn
+    size: 10Gi
+
+architecture: standalone

@@ -7,3 +7,4 @@ resources:
   - ../cache/root
   - ../notifications/root
   - ../edge/root
+  - ../database/root
