@@ -15,31 +15,21 @@ spec:
     spec:
       containers:
         - name: fastapi
-          image: python:3.12-slim
-          command:
-            - sh
-            - -c
-            - |
-              pip install --no-cache-dir fastapi uvicorn && \
-              uvicorn main:app --host 0.0.0.0 --port 8000
-          workingDir: /app
+          image: ghcr.io/axelsson2000/onc-fastapi-demo:main
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
-          volumeMounts:
-            - name: app
-              mountPath: /app/main.py
-              subPath: main.py
           readinessProbe:
             httpGet:
               path: /health
               port: 8000
-            initialDelaySeconds: 10
+            initialDelaySeconds: 5
             periodSeconds: 10
           livenessProbe:
             httpGet:
               path: /health
               port: 8000
-            initialDelaySeconds: 30
+            initialDelaySeconds: 20
             periodSeconds: 20
           resources:
             requests:
@@ -48,7 +38,3 @@ spec:
             limits:
               cpu: 500m
               memory: 512Mi
-      volumes:
-        - name: app
-          configMap:
-            name: fastapi-demo-app
