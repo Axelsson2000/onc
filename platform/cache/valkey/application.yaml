@@ -1,19 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-workload-nextcloud
+  name: platform-cache-valkey
   namespace: argocd
 
 spec:
   project: default
 
   sources:
-    - repoURL: https://nextcloud.github.io/helm/
-      chart: nextcloud
-      targetRevision: 6.6.10
+    - repoURL: https://charts.bitnami.com/bitnami
+      chart: valkey
+      targetRevision: 3.0.31
       helm:
         valueFiles:
-          - $values/applications/workloads/nextcloud/values.yaml
+          - $values/platform/cache/valkey/values.yaml
 
     - repoURL: https://github.com/Axelsson2000/onc.git
       targetRevision: main
@@ -21,7 +21,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: nextcloud
+    namespace: platform-cache
 
   syncPolicy:
     automated:
