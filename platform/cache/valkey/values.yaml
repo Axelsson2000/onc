@@ -2,8 +2,8 @@ architecture: standalone
 
 image:
   registry: docker.io
-  repository: bitnami/valkey
-  tag: latest
+  repository: bitnamilegacy/valkey
+  tag: 8.1.3-debian-12-r3
 
 auth:
   enabled: false
