@@ -1,8 +1,7 @@
 auth:
-  rootPassword: rootpassword
+  existingSecret: mariadb-secret
   database: nextcloud
   username: nextcloud
-  password: nextcloudpassword
 
 primary:
   persistence:
