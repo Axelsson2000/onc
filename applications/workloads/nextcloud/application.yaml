@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-workload-nextcloud
+  namespace: argocd
+
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://nextcloud.github.io/helm/
+      chart: nextcloud
+      targetRevision: 6.6.10
+      helm:
+        valueFiles:
+          - $values/applications/workloads/nextcloud/values.yaml
+
+    - repoURL: https://github.com/Axelsson2000/onc.git
+      targetRevision: main
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nextcloud
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
