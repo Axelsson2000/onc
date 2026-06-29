@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: fastapi-demo
-  namespace: fastapi-demo
+  name: fastapi
+  namespace: fastapi
 spec:
   selector:
-    app: fastapi-demo
+    app: fastapi
   ports:
     - name: http
       port: 80

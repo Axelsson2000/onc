@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-workload-fastapi-demo
+  name: app-workload-fastapi
   namespace: argocd
 
 spec:
@@ -10,11 +10,11 @@ spec:
   source:
     repoURL: https://github.com/Axelsson2000/onc.git
     targetRevision: main
-    path: applications/workloads/fastapi-demo/resources
+    path: applications/workloads/fastapi/resources
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: fastapi-demo
+    namespace: fastapi
 
   syncPolicy:
     automated:

@@ -1,4 +1,4 @@
-# FastAPI Demo
+# FastAPI
 
 Simple FastAPI workload for ONC Platform.
 

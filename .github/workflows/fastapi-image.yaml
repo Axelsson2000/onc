@@ -1,12 +1,12 @@
-name: Build FastAPI Demo Image
+name: Build FastAPI Image
 
 on:
   push:
     branches:
       - main
     paths:
-      - "applications/workloads/fastapi-demo/**"
-      - ".github/workflows/fastapi-demo-image.yaml"
+      - "applications/workloads/fastapi/**"
+      - ".github/workflows/fastapi-image.yaml"
 
 permissions:
   contents: read
@@ -30,8 +30,8 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v6
         with:
-          context: applications/workloads/fastapi-demo
+          context: applications/workloads/fastapi
           push: true
           tags: |
-            ghcr.io/axelsson2000/onc-fastapi-demo:main
-            ghcr.io/axelsson2000/onc-fastapi-demo:${{ github.sha }}
+            ghcr.io/axelsson2000/onc-fastapi:main
+            ghcr.io/axelsson2000/onc-fastapi:${{ github.sha }}

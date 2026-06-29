@@ -1,8 +1,8 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: fastapi-demo
-  namespace: fastapi-demo
+  name: fastapi
+  namespace: fastapi
 spec:
   ingressClassName: nginx
   rules:
@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: fastapi-demo
+                name: fastapi
                 port:
                   number: 80
