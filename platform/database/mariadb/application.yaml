@@ -30,9 +30,9 @@ spec:
       kind: StatefulSet
       name: platform-database-mariadb
       namespace: platform-database
-      jqPathExpressions:
-        - .spec.volumeClaimTemplates[].status
-        - .spec.template.metadata.annotations."checksum/configuration"
+      jsonPointers:
+        - /spec/volumeClaimTemplates/0/apiVersion
+        - /spec/volumeClaimTemplates/0/kind
 
   syncPolicy:
     automated:
