@@ -32,6 +32,7 @@ spec:
       namespace: platform-database
       jqPathExpressions:
         - .spec.volumeClaimTemplates[].status
+        - .spec.template.metadata.annotations."checksum/configuration"
 
   syncPolicy:
     automated:
@@ -39,5 +40,4 @@ spec:
       selfHeal: true
     syncOptions:
       - CreateNamespace=true
-      - ServerSideApply=true
       - RespectIgnoreDifferences=true
