@@ -30,9 +30,11 @@ spec:
       kind: StatefulSet
       name: platform-database-mariadb
       namespace: platform-database
-      jqPathExpressions:
-        - .spec.volumeClaimTemplates[].metadata
-        - .spec.volumeClaimTemplates[].status
+      jsonPointers:
+        - /metadata/annotations
+        - /metadata/managedFields
+        - /spec/volumeClaimTemplates
+        - /status
 
   syncPolicy:
     automated:
