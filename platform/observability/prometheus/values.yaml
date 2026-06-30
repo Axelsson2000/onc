@@ -25,7 +25,7 @@ prometheus:
   enabled: true
 
   prometheusSpec:
-    retention: 7d
+    retention: 3d
     storageSpec:
       volumeClaimTemplate:
         spec:
@@ -46,7 +46,7 @@ alertmanager:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 2Gi
+              storage: 1Gi
 
 kubeStateMetrics:
   enabled: true
