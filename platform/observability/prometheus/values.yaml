@@ -8,7 +8,7 @@ grafana:
 
   ingress:
     enabled: true
-    ingressClassName: traefik
+    ingressClassName: nginx
     hosts:
       - grafana.onc.local
     path: /
@@ -46,7 +46,7 @@ alertmanager:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 1Gi
+              storage: 2Gi
 
 kubeStateMetrics:
   enabled: true
