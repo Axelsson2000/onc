@@ -25,6 +25,15 @@ spec:
     server: https://kubernetes.default.svc
     namespace: platform-database
 
+  ignoreDifferences:
+    - group: apps
+      kind: StatefulSet
+      name: platform-database-mariadb
+      namespace: platform-database
+      jqPathExpressions:
+        - .spec.volumeClaimTemplates[].metadata
+        - .spec.volumeClaimTemplates[].status
+
   syncPolicy:
     automated:
       prune: true
@@ -32,3 +41,4 @@ spec:
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
+      - RespectIgnoreDifferences=true
